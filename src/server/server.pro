@@ -12,7 +12,7 @@ INCLUDEPATH += ../h
 
 QMAKE_LIBDIR_FLAGS += -L../lib -L../voland
 equals(QT_MAJOR_VERSION, 4): LIBS += -ltimed -ltimed-voland
-equals(QT_MAJOR_VERSION, 5): LIBS += -ltimed-qt5 -ltimed-voland-qt5
+equals(QT_MAJOR_VERSION, 5): LIBS += -ltimed-qt5 -ltimed-voland-qt5 -liodata-qt5
 
 IODATA_TYPES = queue.type config.type settings.type customization.type tzdata.type
 
@@ -72,7 +72,13 @@ SOURCES += \
     ofonomodemmanager.cpp \
     modemwatcher.cpp \
     ofonoconstants.cpp \
-    ntpcontroller.cpp
+    ntpcontroller.cpp \
+    config.type.cpp \
+    customization.type.cpp \
+    queue.type.cpp \
+    settings.type.cpp \
+    timed-cust-rc.type.cpp \
+    tzdata.type.cpp
 
 SOURCES += credentials.cpp
 HEADERS += credentials.h
@@ -87,7 +93,7 @@ SOURCES += notification.cpp
 HEADERS += notification.h
 
 CONFIG += link_pkgconfig
-PKGCONFIG += libpcrecpp libsystemd-daemon
+PKGCONFIG += libpcrecpp libsystemd
 equals(QT_MAJOR_VERSION, 4) {
     CONFIG += iodata
     PKGCONFIG += contextprovider-1.0
