@@ -36,7 +36,7 @@
 #define LOG_DEBUG    7
 #define LOG_FULL     LOG_DEBUG
 
-#define LOG_LEVEL LOG_WARNING
+#define LOG_LEVEL LOG_FULL
 
 #if LOG_LEVEL >= LOG_DEBUG
 # define log_debug(FMT,ARGS...) \
