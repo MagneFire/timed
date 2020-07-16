@@ -316,6 +316,7 @@ void Timed::init_create_event_machine()
 
   // Forward signal from am to DBUS via com_nokia_time DBUS adaptor
   QObject::connect(am, SIGNAL(next_bootup_event(int,int)), this, SIGNAL(next_bootup_event(int,int)));
+  QObject::connect(am, SIGNAL(wakeup_event()), this, SIGNAL(wakeup_event()));
   voland_watcher = NULL ;
   QObject::connect(this, SIGNAL(voland_registered()), am, SIGNAL(voland_registered())) ;
   QObject::connect(this, SIGNAL(voland_unregistered()), am, SIGNAL(voland_unregistered())) ;

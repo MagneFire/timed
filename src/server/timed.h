@@ -165,6 +165,7 @@ Q_SIGNALS:
   void settings_changed(const Maemo::Timed::WallClock::Info &, bool system_time) ;
   void next_bootup_event(int next_boot_event, int next_non_boot_event);
   void alarm_triggers_changed(Maemo::Timed::Event::Triggers);
+  void wakeup_event();
   // void settings_changed_1(bool system_time) ;
 public:
   Timed(int ac, char **av) ;

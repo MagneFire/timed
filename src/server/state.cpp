@@ -738,8 +738,21 @@ void state_aborted_t::enter(event_t *e)
 void state_dlg_wait_t::enter(event_t *e)
 {
   e->flags |= EventFlags::In_Dialog ;
-  if (not is_open)
-    emit voland_needed() ;
+  for(attribute_t::const_iterator at=e->attr.txt.begin(); at!=e->attr.txt.end(); at++)
+  {
+    QString key = string_std_to_q(at->first) ;
+    QString val = string_std_to_q(at->second) ;
+    if (key == "type") {
+      if (val == "wakeup") {
+        machine->state_served->go_to(e);
+        emit wakeup_event();
+      } else {
+        if (not is_open)
+          emit voland_needed();
+      }
+      break;
+    }
+  }
   abstract_gate_state_t::enter(e) ;
 }
 

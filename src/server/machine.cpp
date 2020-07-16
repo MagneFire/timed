@@ -116,6 +116,7 @@ machine_t::machine_t(const Timed *daemon) : timed(daemon)
   state_armed->open() ;
 
   QObject::connect(state_dlg_wait, SIGNAL(voland_needed()), this, SIGNAL(voland_needed())) ;
+  QObject::connect(state_dlg_wait, SIGNAL(wakeup_event()), this, SIGNAL(wakeup_event())) ;
 
   QObject::connect(state_dlg_wait, SIGNAL(closed()), state_dlg_requ, SLOT(open())) ;
   QObject::connect(state_dlg_wait, SIGNAL(closed()), state_dlg_user, SLOT(open())) ;

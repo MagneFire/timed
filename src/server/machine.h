@@ -101,6 +101,7 @@ Q_SIGNALS:
   void queue_to_be_saved() ;
   void voland_needed() ;
   void next_bootup_event(int, int);
+  void wakeup_event();
   void child_created(unsigned, int) ;
   void alarm_present(bool present);
   void alarm_trigger(QMap<QString, QVariant> triggers);

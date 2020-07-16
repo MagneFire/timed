@@ -314,6 +314,7 @@ public:
   uint32_t cluster_bits() { return EventFlags::Cluster_Dialog ; }
 Q_SIGNALS:
   void voland_needed() ;
+  void wakeup_event();
 private:
   Q_OBJECT ;
 } ;
